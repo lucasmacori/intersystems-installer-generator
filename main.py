@@ -1,9 +1,9 @@
 import os
 
-from analysing import analyse_files
-from generating import generate_installer
-from parameters import prompt_user, summarize_parameters
-from production import open_production
+from modules.analysing import analyse_files
+from modules.generating import generate_installer
+from modules.parameters import prompt_user, summarize_parameters
+from modules.production import open_production
 
 
 def main():
