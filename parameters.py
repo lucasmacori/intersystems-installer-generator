@@ -1,3 +1,8 @@
+import os
+
+cwd = os.getcwd()
+
+
 def prompt_user():
     """
     Demande à l'utilisateur les paramètres d'entrée du programme
@@ -12,8 +17,10 @@ def prompt_user():
     production_filename = str(input('Chemin vers la production: '))
 
     # Applications des valeurs par défaut si non renseignée
-    if directory.strip() == '': directory = default_directory
-    if filename.strip() == '': filename = default_filename
+    if directory.strip() == '':
+        directory = default_directory
+    if filename.strip() == '':
+        filename = default_filename
 
     return directory, filename, production_filename
 
@@ -26,7 +33,7 @@ def summarize_parameters(directory, filename, production_filename):
     print('\nParamètres')
     print('------------------------------')
     print('Fichier généré:', directory + filename)
-    print('Fichier de production:', production_filename)
+    print('Fichier de production:', cwd + '/' + production_filename)
 
     response = ''
     while response != 'O' and response != 'N':
