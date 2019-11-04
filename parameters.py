@@ -30,6 +30,6 @@ def summarizeParameters(directory, filename, productionFilename):
     response = ''
     while response != 'O' and response != 'N':
         response = str(input('Est-ce-correct ? [O/N]: '))
-        response.strip().upper()
+        response = response.strip().upper()
 
     return response == 'O'
