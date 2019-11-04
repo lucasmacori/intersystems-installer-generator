@@ -1,7 +1,9 @@
 import os
-from parameters import promptUser, summarizeParameters
-from analysing import analyseFiles
-from generating import generateInstaller
+
+from analysing import analyse_files
+from generating import generate_installer
+from parameters import prompt_user, summarize_parameters
+
 
 def main():
     # Récupération du répertoire de travail actuel
@@ -10,14 +12,15 @@ def main():
     # Récupération des paramètres
     tried = False
     values = (None, None, None)
-    while not tried or not summarizeParameters(*values):
+    while not tried or not summarize_parameters(*values):
         tried = True
-        values = promptUser()
+        values = prompt_user()
 
     # Analyse des fichiers
-    files = analyseFiles(cwd)
+    files = analyse_files(cwd)
 
     # Génération du fichier installer
-    generateInstaller(*values, *files)
+    generate_installer(*values, *files)
+
 
 if __name__ == "__main__": main()
