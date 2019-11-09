@@ -9,6 +9,7 @@ from modules.production import open_production
 def main():
     # Récupération du répertoire de travail actuel
     cwd = os.getcwd()
+    cwd = 'C:/Users/Lucas/Desktop/Temp/SVCREMB'  # Enlever une fois l'application packagée
 
     # Récupération des paramètres
     tried = False
@@ -18,12 +19,13 @@ def main():
         tried = True
         values = prompt_user()
         # Récupération du contenu de la production
-        production = open_production(values[2])  # TODO: Ajouter le cwd
+        production = open_production(cwd + '/' + values[2])
         if production is None:
             print('Le fichier de production n\'existe pas, veuillez recommencer')
             tried = False
 
     # Analyse des fichiers
+    # files = analyse_files(cwd, production)
     files = analyse_files(cwd, production)
 
     # Génération du fichier installer

@@ -16,7 +16,7 @@ def prompt_user():
     filename = str(input('Nom du fichier (' + default_filename + '): '))
     production_filename = str(input('Chemin vers la production: '))
 
-    # Applications des valeurs par défaut si non renseignée
+    # Applications des valeurs par défaut si non renseignées
     if directory.strip() == '':
         directory = default_directory
     if filename.strip() == '':
