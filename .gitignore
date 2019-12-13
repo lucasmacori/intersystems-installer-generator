@@ -106,3 +106,6 @@ venv.bak/
 # IDE
 .vs
 .idea
+
+# Intégration
+*.bat
