@@ -75,9 +75,7 @@ def is_of_type(current_class, type):
     :return: True si la classe est du type donné, sinon False
     """
     try:
-        f = open(current_class)
         xml = parse(f.read()).Export.Class.Super
-        f.close()
         return str(xml.cdata) == type
     except AttributeError:
         return False
