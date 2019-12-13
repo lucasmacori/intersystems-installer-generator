@@ -9,7 +9,7 @@ from modules.production import open_production
 def main():
     # Récupération du répertoire de travail actuel
     cwd = os.getcwd()
-    cwd = 'C:/Users/Lucas/Desktop/Temp/SVCREMB'  # Enlever une fois l'application packagée
+    # cwd = 'C:/Users/Lucas/Desktop/Temp/SVCREMB'  # Enlever une fois l'application packagée
 
     # Récupération des paramètres
     tried = False
