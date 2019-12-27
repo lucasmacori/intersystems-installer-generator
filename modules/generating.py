@@ -18,7 +18,7 @@ def generate_installer(directory, filename, productionFilename, production_items
 		  "<ReturnType>%Status</ReturnType>\n" + \
 		  "<Implementation><![CDATA[\n" + \
 		  "	Set tProjectName = \"\"\n" + \
-		  "	Set tProductionName = \"" + productionFilename + "\"\n" + \
+		  "	Set tProductionName = \"" + productionFilename.replace('\\', '/').replace('/', '.') + "\"\n" + \
 		  "	Set tProductionClassIncluded = 1\n" + \
 		  "	Set tExportFilename = path_\"\"\n" + \
 		  "	Set tComments = \"\"\n" + \
@@ -27,22 +27,22 @@ def generate_installer(directory, filename, productionFilename, production_items
 
 	# Items de la production
 	for production_item in production_items:
-		xml += "	Set tContentsList(\"" + production_item.class_name + "\") = \"\"\n"
+		xml += "	Set tContentsList(\"" + production_item.class_name.replace('\\', '/').replace('/', '.').replace('.cls.xml', '') + "\") = \"\"\n"
 	
 	# Classes
 	xml += "\n	// Classes\n"
 	for current_class in classes:
-		xml += "	Set tContentsList(\"" + current_class + "\") = \"\"\n"
+		xml += "	Set tContentsList(\"" + current_class.replace('\\', '/').replace('/', '.').replace('.cls.xml', '') + "\") = \"\"\n"
 
 	# Transforms
 	xml += "\n	// Transforms\n"
 	for transform in transforms:
-		xml += "	Set tContentsList(\"" + transform + "\") = \"\"\n"
+		xml += "	Set tContentsList(\"" + transform.replace('\\', '/').replace('/', '.').replace('.cls.xml', '') + "\") = \"\"\n"
 
 	# Routines
 	xml += "\n	// Routines\n"
 	for routine in routines:
-		xml += "	Set tContentsList(\"" + routine + "\") = \"\"\n"
+		xml += "	Set tContentsList(\"" + routine.replace('\\', '/').replace('/', '.').replace('.cls.xml', '') + "\") = \"\"\n"
 
 	# Export des items de la production
 	index = 0

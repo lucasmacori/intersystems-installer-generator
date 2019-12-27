@@ -43,18 +43,21 @@ def get_classes(directory, production):
     prod_items = []
     transforms = []
     classes = find_files_from_extension(directory, '.cls.xml')
+    classes_name = []
     for current_class in classes:
+        current_class_name = current_class[len(directory) + 1:]
         # Vérifie si la classe est un bo
-        current_prod_item = contains_classname(production, current_class[len(directory) + 1:])
+        current_prod_item = contains_classname(production, current_class_name)
         if current_prod_item is not None:
             prod_items.append(current_prod_item)
-            classes.remove(current_class)
         # Vérifie si la classe est un transform
         elif is_transform(current_class):
-            transforms.append(current_class)
-            classes.remove(current_class)
+            transforms.append(current_class_name)
+        # Si la classe est bien une classe (et non pas un context ou un thread), on la stocke en tant que "Classe"
+        elif not ('Context.cls.xml' in current_class_name or 'Thread' in current_class_name):
+            classes_name.append(current_class_name)
 
-    return prod_items, transforms, classes
+    return prod_items, transforms, classes_name
 
 
 def get_routines(directory):

@@ -8,7 +8,7 @@ def prompt_user():
     Demande à l'utilisateur les paramètres d'entrée du programme
     :return Un tuple contenant dans l'ordre: le dossier de l'installer, le nom de l'installer, le chemin et le nom du fichier de production
     """
-    default_directory = 'Installer'
+    default_directory = 'Installer/'
     default_filename = 'Installer.cls.xml'
 
     # Demande des informations de l'installer à l'utilisateur
