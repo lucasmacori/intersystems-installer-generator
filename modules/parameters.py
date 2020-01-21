@@ -22,6 +22,10 @@ def prompt_user():
     if filename.strip() == '':
         filename = default_filename
 
+    # Suppression d'un slash à la fin si présent
+    while directory.replace('\\', '/').endswith('/'):
+        directory = directory[:len(directory) - 1]
+
     return directory, filename, production_filename
 
 
